@@ -7,20 +7,16 @@ Personal Codex configuration and skills.
 - `AGENTS.md` - global guidance loaded by Codex.
 - `config.toml` - stable Codex config template.
 - `skills/` - personal skills sourced from `~/.claude_personal/skills` and adapted for Codex discovery.
-- `install.sh` - symlinks this repo into the standard local Codex paths.
 
-## Install
+## Usage
 
 ```bash
-./install.sh
+codex-p
 ```
 
-The installer links:
+`codex-p` loads this repository as the personal Codex profile and keeps runtime
+state under `~/.codex_personal`.
 
-- `AGENTS.md` -> `~/.codex/AGENTS.md`
-- each entry in `skills/` -> `~/.agents/skills/`
-
-`config.toml` is intentionally not force-linked by default because existing
-`~/.codex/config.toml` files often contain machine-local plugin, project trust,
-and notification settings. Review and copy the stable settings manually when
-needed.
+Do not symlink these skills into the default `~/.codex` or `~/.agents/skills`
+paths. Those paths are shared with the default/company Codex environment, so
+installing personal skills there makes the two environments overlap.
